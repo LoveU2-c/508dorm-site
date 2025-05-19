@@ -1,38 +1,111 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>赛博508</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>508 宿舍官网</title>
   <style>
     body {
       margin: 0;
-      height: 100vh;
-      background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #0d0d0d;
+      color: white;
     }
 
-    h1 {
-      font-size: 4rem;
-      background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffcc, #ffff00, #ff0000);
-      background-size: 1000% 1000%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: rainbow 8s linear infinite;
+    nav {
+      background-color: #1a1a1a;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      position: sticky;
+      top: 0;
+      border-bottom: 1px solid #333;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: #ccc;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    nav button:hover {
+      color: #00ffff;
+    }
+
+    .content {
+      display: none;
+      padding: 3rem 1rem;
       text-align: center;
     }
 
+    .active {
+      display: block;
+    }
+
+    .rainbow-text {
+      font-size: 3rem;
+      font-weight: bold;
+      animation: rainbow 5s linear infinite;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
     @keyframes rainbow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% { background-image: linear-gradient(45deg, red, orange); }
+      25% { background-image: linear-gradient(45deg, orange, yellow); }
+      50% { background-image: linear-gradient(45deg, green, cyan); }
+      75% { background-image: linear-gradient(45deg, blue, violet); }
+      100% { background-image: linear-gradient(45deg, red, orange); }
     }
   </style>
 </head>
 <body>
-  <h1>赛博508正在装修</h1>
+
+  <nav>
+    <button onclick="showPage('home')">首页</button>
+    <button onclick="showPage('members')">成员</button>
+    <button onclick="showPage('timeline')">时间轴</button>
+    <button onclick="showPage('events')">活动</button>
+    <button onclick="showPage('plaza')">广场</button>
+  </nav>
+
+  <div id="home" class="content active">
+    <div class="rainbow-text">赛博508正在装修</div>
+  </div>
+
+  <div id="members" class="content">
+    <h2>成员</h2>
+    <p>这里是508的成员介绍页面。</p>
+  </div>
+
+  <div id="timeline" class="content">
+    <h2>时间轴</h2>
+    <p>重要事件将在这里展示。</p>
+  </div>
+
+  <div id="events" class="content">
+    <h2>活动</h2>
+    <p>活动内容和安排在这里显示。</p>
+  </div>
+
+  <div id="plaza" class="content">
+    <h2>广场</h2>
+    <p>这是一个交流分享的地方。</p>
+  </div>
+
+  <script>
+    function showPage(id) {
+      const pages = document.querySelectorAll('.content');
+      pages.forEach(page => page.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+
 </body>
 </html>
