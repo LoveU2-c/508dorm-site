@@ -1,6 +1,2 @@
-name = "worker-508dorm"
-type = "javascript"
-compatibility_date = "2025-05-21"
-
-[site]
-bucket = "./508dorm-site"
+# wrangler.toml
+name = '508dorm-site'
