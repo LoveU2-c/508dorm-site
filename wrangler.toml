@@ -3,4 +3,4 @@ type = "javascript"
 compatibility_date = "2025-05-21"
 
 [site]
-bucket = "./508dorm"
+bucket = "./508dorm-site"
